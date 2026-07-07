@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eid Mubarak ✦ Premium Cards by Anayet Ullah</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a84c;--gold2:#f0d070;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#060d08;font-family:'Playfair Display',serif;min-height:100vh;overflow-x:hidden;}
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--d) ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:0.2;transform:scale(1);}50%{opacity:1;transform:scale(1.5);}}
+header{position:relative;z-index:10;text-align:center;padding:3.5rem 1rem 1.5rem;}
+.orn-row{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1rem;}
+.orn-line{height:1px;width:80px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.orn-moon{color:var(--gold);font-size:1.5rem;animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+header h1{font-family:'Cinzel Decorative',serif;font-size:clamp(1.6rem,4.5vw,3.2rem);background:linear-gradient(135deg,#a07828,#c9a84c,#f0d070,#c9a84c,#a07828);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.08em;}
+header .tagline{color:rgba(240,208,112,0.6);font-size:0.9rem;margin-top:0.4rem;font-style:italic;letter-spacing:0.15em;}
+.controls{position:relative;z-index:10;max-width:780px;margin:1.5rem auto;padding:0 1.2rem;}
+.ctrl-row{display:flex;gap:0.8rem;align-items:flex-start;flex-wrap:wrap;}
+.ctrl-box{flex:1;min-width:200px;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:1rem 1.2rem;}
+.ctrl-box label{display:block;color:var(--gold2);font-size:0.78rem;letter-spacing:0.15em;margin-bottom:0.5rem;font-family:'Cinzel Decorative',serif;}
+.ctrl-box textarea{width:100%;background:transparent;border:none;color:#fff;font-family:'Amiri',serif;font-size:1.05rem;outline:none;resize:none;line-height:1.5;min-height:60px;}
+::placeholder{color:rgba(255,255,255,0.3);font-style:italic;}
+.lang-pills{display:flex;gap:0.5rem;}
+.lang-pill{padding:0.35rem 1.1rem;border:1.5px solid var(--gold);background:transparent;color:var(--gold);border-radius:30px;cursor:pointer;font-family:'Cinzel Decorative',serif;font-size:0.75rem;transition:all 0.25s;}
+.lang-pill.active,.lang-pill:hover{background:var(--gold);color:#000;font-weight:900;}
+.sec-div{position:relative;z-index:10;text-align:center;margin:2rem 0 1.5rem;display:flex;align-items:center;justify-content:center;gap:1.2rem;padding:0 1rem;}
+.sec-div::before,.sec-div::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent);max-width:200px;}
+.sec-div span{font-family:'Cinzel Decorative',serif;font-size:0.85rem;color:var(--gold);letter-spacing:0.2em;white-space:nowrap;}
+.grid{position:relative;z-index:10;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.8rem;max-width:1280px;margin:0 auto;padding:0 1.2rem 6rem;}
+.card-wrap{border-radius:18px;overflow:hidden;cursor:pointer;transition:transform 0.35s cubic-bezier(.34,1.56,.64,1),box-shadow 0.35s;border:1.5px solid rgba(201,168,76,0.15);position:relative;}
+.card-wrap:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 25px 60px rgba(0,0,0,0.6),0 0 30px rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.5);}
+.card-wrap.selected{border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.25),0 20px 50px rgba(0,0,0,0.5);}
+.card-wrap.selected::after{content:'✓';position:absolute;top:10px;right:10px;width:28px;height:28px;background:var(--gold);color:#000;border-radius:50%;font-weight:900;font-size:0.9rem;z-index:20;display:grid;place-items:center;}
+.eid-card{width:100%;aspect-ratio:1/1;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1.5rem;text-align:center;}
+.card-name-tag{background:rgba(0,0,0,0.75);color:var(--gold);font-family:'Cinzel Decorative',serif;font-size:0.65rem;letter-spacing:0.18em;padding:0.3rem 1rem;text-align:center;}
+.c-arabic{font-family:'Amiri',serif;font-size:4.5rem;line-height:1;font-weight:700;position:relative;z-index:5;}
+.c-main{font-family:'Cinzel Decorative',serif;font-size:2.6rem;letter-spacing:0.05em;position:relative;z-index:5;margin-top:0.3rem;}
+.c-sub{font-size:1.2rem;letter-spacing:0.15em;margin-top:0.4rem;position:relative;z-index:5;opacity:0.85;line-height:1.5;}
+.c-year{font-size:1rem;letter-spacing:0.25em;margin-top:0.25rem;position:relative;z-index:5;opacity:0.6;}
+.c-note{font-family:'Amiri',serif;font-size:0.82rem;margin-top:0.6rem;color:rgba(255,255,255,0.8);font-style:italic;max-width:85%;line-height:1.5;position:relative;z-index:5;display:none;word-break:break-word;}
+.c-brand{position:absolute;bottom:10px;left:10px;right:10px;z-index:10;display:none;flex-direction:row;align-items:center;justify-content:center;gap:0.6rem;padding:0.5rem 0.85rem 0.5rem 0.5rem;background:rgba(0,0,0,0.82);border:1px solid rgba(201,168,76,0.5);border-radius:50px;backdrop-filter:blur(10px);}
+.c-brand.show{display:flex;}
+.c-brand-logo-wrap{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(201,168,76,0.7);background:rgba(10,22,40,0.9);flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.c-brand-logo{width:100%;height:100%;object-fit:contain;border-radius:50%;}
+.c-brand-divider{width:1px;height:26px;background:linear-gradient(180deg,transparent,rgba(201,168,76,0.45),transparent);flex-shrink:0;}
+.c-brand-text{display:flex;flex-direction:column;gap:0.05rem;min-width:0;}
+.c-brand-name{font-family:'Cinzel Decorative',serif;font-size:0.65rem;letter-spacing:0.14em;color:#f0d070;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.c-brand-tagline{font-family:'Playfair Display',serif;font-size:0.5rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55);font-style:italic;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* Templates */
+.c1{background:linear-gradient(160deg,#0a1628,#0d2040,#152b50);}
+.c1 .c-arabic,.c1 .c-main{color:#f0d070;text-shadow:0 0 30px rgba(240,208,112,0.5);}
+.c1 .c-sub{color:rgba(200,230,255,0.85);font-style:italic;}.c1 .c-year{color:rgba(200,230,255,0.5);}
+.c2{background:linear-gradient(160deg,#fdf8ee,#f5edda);}
+.c2 .c-arabic{color:#8b5e00;}.c2 .c-main{color:#5a3800;}.c2 .c-sub{color:#9a7040;font-style:italic;}.c2 .c-year{color:#b08040;}.c2 .c-note{color:#4a3020!important;}
+.c3{background:linear-gradient(135deg,#0d3b2e,#155c3f,#0d3b2e);}
+.c3 .c-arabic,.c3 .c-main{color:#f0d070;text-shadow:0 0 20px rgba(240,208,112,0.4);}.c3 .c-sub{color:rgba(200,255,200,0.8);}.c3 .c-year{color:rgba(200,255,200,0.5);}
+.c4{background:radial-gradient(ellipse at top,#2a0845,#0e0020);}
+.c4 .c-arabic{color:#e8c0ff;text-shadow:0 0 25px rgba(200,100,255,0.4);}.c4 .c-main{color:#ffd700;}.c4 .c-sub{color:rgba(220,180,255,0.85);}.c4 .c-year{color:rgba(220,180,255,0.5);}
+.c5{background:linear-gradient(180deg,#020818,#071030,#020818);}
+.c5 .c-arabic{color:#ffd700;text-shadow:0 0 30px rgba(255,215,0,0.6);}.c5 .c-main{color:#fff;}.c5 .c-sub{color:rgba(180,220,255,0.85);}.c5 .c-year{color:rgba(180,220,255,0.5);}
+.c6{background:linear-gradient(135deg,#2d0a18,#7a2040,#2d0a18);}
+.c6 .c-arabic{color:#ffd0e0;text-shadow:0 0 20px rgba(255,100,150,0.4);}.c6 .c-main{color:#ffb8cc;}.c6 .c-sub{color:rgba(255,200,220,0.8);font-style:italic;}.c6 .c-year{color:rgba(255,200,220,0.5);}
+.c7{background:linear-gradient(160deg,#1a0500,#5c1500,#aa4000,#5c1500);}
+.c7 .c-arabic,.c7 .c-main{color:#ffe8a0;text-shadow:0 0 25px rgba(255,200,80,0.5);}.c7 .c-sub{color:rgba(255,230,180,0.85);}.c7 .c-year{color:rgba(255,230,180,0.5);}
+.c8{background:linear-gradient(135deg,#001a20,#003d4d,#001a20);}
+.c8 .c-arabic,.c8 .c-main{color:#7fffd4;text-shadow:0 0 20px rgba(127,255,212,0.4);}.c8 .c-sub{color:rgba(180,255,240,0.8);}.c8 .c-year{color:rgba(180,255,240,0.5);}
+.c9{background:linear-gradient(160deg,#1c1000,#4d3000,#8a5800,#4d3000);}
+.c9 .c-arabic,.c9 .c-main{color:#ffe080;text-shadow:0 0 20px rgba(255,220,80,0.4);}.c9 .c-sub{color:rgba(255,235,180,0.85);}.c9 .c-year{color:rgba(255,235,180,0.5);}
+.c10{background:radial-gradient(ellipse at center,#1a1a5e,#080820);}
+.c10 .c-arabic{color:#ffd700;text-shadow:0 0 30px rgba(255,215,0,0.5);}.c10 .c-main{color:#fff;}.c10 .c-sub{color:rgba(200,200,255,0.85);}.c10 .c-year{color:rgba(200,200,255,0.5);}
+.c11{background:linear-gradient(135deg,#ffe8f0,#ffd0e5,#ffe8f0);border:2px solid #f0a0c0;}
+.c11 .c-arabic{color:#8b0030;}.c11 .c-main{color:#6a0025;}.c11 .c-sub{color:#a05070;}.c11 .c-year{color:#c080a0;}.c11 .c-note{color:#4a1030!important;}
+.c12{background:linear-gradient(160deg,#1a1500,#3d3000,#6b5500);}
+.c12 .c-arabic{color:#e8d080;text-shadow:0 0 20px rgba(232,208,128,0.4);}.c12 .c-main{color:#e8d080;font-style:italic;}.c12 .c-sub{color:rgba(232,208,128,0.8);}.c12 .c-year{color:rgba(232,208,128,0.5);}
+.c13{background:linear-gradient(160deg,#001a4d,#002b7a,#001a4d);}
+.c13 .c-arabic{color:#fff;text-shadow:0 0 20px rgba(255,255,255,0.4);}.c13 .c-main{color:#ffd700;}.c13 .c-sub{color:rgba(200,220,255,0.85);}.c13 .c-year{color:rgba(200,220,255,0.5);}
+.c14{background:radial-gradient(ellipse at 50% 30%,#0d5c30,#052010);}
+.c14 .c-arabic{color:#a0ffc8;text-shadow:0 0 25px rgba(100,255,180,0.4);}.c14 .c-main{color:#f0d070;}.c14 .c-sub{color:rgba(200,255,220,0.85);}.c14 .c-year{color:rgba(200,255,220,0.5);}
+.c15{background:linear-gradient(160deg,#000,#0d0d0d,#000);}
+.c15 .c-arabic,.c15 .c-main{background:linear-gradient(135deg,#c9a84c,#f0d070,#c9a84c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.c15 .c-sub{color:rgba(201,168,76,0.8);}.c15 .c-year{color:rgba(201,168,76,0.5);}
+.c16{background:linear-gradient(135deg,#1a0000,#5c0000,#1a0000);}
+.c16 .c-arabic,.c16 .c-main{color:#ffd700;text-shadow:0 0 20px rgba(255,215,0,0.4);}.c16 .c-sub{color:rgba(255,200,200,0.85);}.c16 .c-year{color:rgba(255,200,200,0.5);}
+.c17{background:linear-gradient(160deg,#0a0a14,#1a1a2e,#0a0a14);}
+.c17 .c-arabic,.c17 .c-main{background:linear-gradient(135deg,#c0c0c0,#fff,#c0c0c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.c17 .c-sub{color:rgba(200,220,255,0.8);}.c17 .c-year{color:rgba(200,220,255,0.5);}
+.c18{background:linear-gradient(135deg,#001515,#003333,#001515);}
+.c18 .c-arabic{color:#40e0d0;text-shadow:0 0 20px rgba(64,224,208,0.4);}.c18 .c-main{color:#ffd700;}.c18 .c-sub{color:rgba(100,240,230,0.85);}.c18 .c-year{color:rgba(100,240,230,0.5);}
+.c19{background:linear-gradient(135deg,#f8f0e0,#f0e4c8);border:2px solid #c8a060;}
+.c19 .c-arabic{color:#6b4500;}.c19 .c-main{color:#4a3000;font-style:italic;}.c19 .c-sub{color:#8a6030;}.c19 .c-year{color:#b09060;}.c19 .c-note{color:#3a2000!important;}
+.c20{background:radial-gradient(ellipse at 30% 40%,#1a0050,#000010);}
+.c20 .c-arabic{background:linear-gradient(135deg,#ff69b4,#ffd700,#ff69b4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}.c20 .c-main{color:#ffd700;}.c20 .c-sub{color:rgba(255,180,240,0.85);}.c20 .c-year{color:rgba(255,180,240,0.5);}
+.c21{background:radial-gradient(ellipse at bottom,#0d3020,#030d08);}
+.c21 .c-arabic{color:#b0ffc0;text-shadow:0 0 20px rgba(100,255,150,0.3);}.c21 .c-main{color:#f0d070;}.c21 .c-sub{color:rgba(180,255,200,0.8);}.c21 .c-year{color:rgba(180,255,200,0.5);}
+.c22{background:linear-gradient(160deg,#000820,#001050,#000820);}
+.c22 .c-arabic{color:#80c0ff;text-shadow:0 0 25px rgba(100,180,255,0.4);}.c22 .c-main{color:#ffd700;}.c22 .c-sub{color:rgba(180,210,255,0.85);}.c22 .c-year{color:rgba(180,210,255,0.5);}
+
+/* Sticky */
+.sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(6,13,8,0.96);backdrop-filter:blur(16px);border-top:1px solid rgba(201,168,76,0.35);padding:0.8rem 1.5rem;z-index:500;display:none;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.sticky.show{display:flex;}
+.sticky-left{display:flex;flex-direction:column;gap:0.25rem;}
+.sticky-info{color:rgba(240,208,112,0.85);font-size:0.88rem;font-style:italic;}
+.sticky-credit{display:flex;align-items:center;gap:0.4rem;text-decoration:none;transition:opacity 0.2s;}
+.sticky-credit:hover{opacity:0.8;}
+.sticky-credit-dot{color:var(--gold);font-size:0.65rem;}
+.sticky-credit span{font-size:0.72rem;color:rgba(255,255,255,0.4);letter-spacing:0.03em;}
+.sticky-credit strong{background:linear-gradient(135deg,#c9a84c,#f0d070);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Cinzel Decorative',serif;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;}
+.sticky-btns{display:flex;gap:0.6rem;flex-wrap:wrap;}
+.btn-edit{padding:0.72rem 1.6rem;border:1.5px solid var(--gold);background:transparent;color:var(--gold);border-radius:40px;font-family:'Cinzel Decorative',serif;font-size:0.82rem;font-weight:700;cursor:pointer;transition:all 0.25s;}
+.btn-edit:hover{background:rgba(201,168,76,0.15);}
+.btn-dl{padding:0.72rem 1.8rem;background:linear-gradient(135deg,#c9a84c,#f0d070,#c9a84c);color:#000;border:none;border-radius:40px;font-family:'Cinzel Decorative',serif;font-size:0.82rem;font-weight:900;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 20px rgba(201,168,76,0.4);}
+.btn-dl:hover{transform:scale(1.06);box-shadow:0 6px 30px rgba(201,168,76,0.65);}
+
+/* Overlay */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:900;align-items:flex-start;justify-content:center;padding:1rem;overflow-y:auto;}
+.overlay.show{display:flex;}
+@keyframes panelIn{from{transform:scale(0.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+
+/* Edit Panel */
+.edit-panel{background:linear-gradient(160deg,#060f08,#0d2018);border:1.5px solid var(--gold);border-radius:24px;max-width:92vw;width:900px;overflow:hidden;animation:panelIn 0.3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 80px rgba(201,168,76,0.2);margin:auto;}
+.ep-hdr{background:linear-gradient(135deg,#0a1a10,#0d2a18);border-bottom:1px solid rgba(201,168,76,0.25);padding:1.1rem 1.8rem;display:flex;align-items:center;justify-content:space-between;}
+.ep-hdr h2{font-family:'Cinzel Decorative',serif;color:var(--gold2);font-size:0.95rem;letter-spacing:0.1em;}
+.ep-x{background:none;border:1.5px solid rgba(201,168,76,0.4);color:var(--gold);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:grid;place-items:center;transition:all 0.2s;}
+.ep-x:hover{background:var(--gold);color:#000;}
+.ep-body{display:grid;grid-template-columns:1fr 1fr;}
+@media(max-width:700px){.ep-body{grid-template-columns:1fr;}}
+.ep-left{padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:1rem;background:rgba(0,0,0,0.3);border-right:1px solid rgba(201,168,76,0.1);}
+.ep-plbl{color:rgba(201,168,76,0.6);font-size:0.7rem;letter-spacing:0.2em;font-family:'Cinzel Decorative',serif;}
+.ep-pbox{width:100%;max-width:280px;aspect-ratio:1/1;border-radius:12px;overflow:hidden;border:1.5px solid rgba(201,168,76,0.3);box-shadow:0 10px 40px rgba(0,0,0,0.5);}
+.ep-pbox .eid-card{width:100%;height:100%;}
+.ep-right{padding:1.5rem;display:flex;flex-direction:column;gap:0.85rem;overflow-y:auto;max-height:82vh;}
+.ep-field{display:flex;flex-direction:column;gap:0.35rem;}
+.ep-lbl{color:var(--gold2);font-size:0.68rem;letter-spacing:0.18em;font-family:'Cinzel Decorative',serif;}
+.ep-inp,.ep-ta,.ep-sel{background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.3);border-radius:10px;color:#fff;padding:0.6rem 0.85rem;font-family:'Amiri',serif;font-size:1rem;outline:none;transition:border-color 0.2s,box-shadow 0.2s;width:100%;}
+.ep-inp:focus,.ep-ta:focus,.ep-sel:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(201,168,76,0.2);}
+.ep-ta{resize:vertical;min-height:65px;}
+.ep-sel option{background:#0d2018;color:#fff;}
+.ep-presets{display:flex;flex-direction:column;gap:0.45rem;margin-top:0.2rem;}
+.preset-btn{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.22);border-radius:10px;color:rgba(255,255,255,0.75);padding:0.55rem 0.9rem;font-family:'Amiri',serif;font-size:0.9rem;cursor:pointer;text-align:left;line-height:1.4;transition:all 0.2s;}
+.preset-btn:hover{background:rgba(201,168,76,0.12);border-color:var(--gold);color:#fff;}
+.preset-btn.active{background:rgba(201,168,76,0.18);border-color:var(--gold);color:#fff;}
+.ep-srow{display:flex;align-items:center;gap:0.6rem;}
+.ep-slider{flex:1;accent-color:var(--gold);cursor:pointer;}
+.ep-sv{color:var(--gold);font-size:0.75rem;min-width:35px;text-align:right;}
+.ep-actions{display:flex;gap:0.7rem;margin-top:0.3rem;}
+.ep-apply{flex:1;background:linear-gradient(135deg,#c9a84c,#f0d070,#c9a84c);color:#000;border:none;padding:0.8rem;border-radius:12px;font-family:'Cinzel Decorative',serif;font-size:0.78rem;font-weight:900;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 20px rgba(201,168,76,0.35);}
+.ep-apply:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(201,168,76,0.55);}
+.ep-reset{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:0.8rem 1.2rem;border-radius:12px;font-family:'Cinzel Decorative',serif;font-size:0.78rem;cursor:pointer;transition:all 0.2s;}
+.ep-reset:hover{background:rgba(201,168,76,0.15);}
+
+/* Social Modal */
+.social-modal{background:linear-gradient(160deg,#060f08,#081808);border:1.5px solid var(--gold);border-radius:24px;padding:2rem 1.5rem 2.5rem;max-width:92vw;width:430px;text-align:center;box-shadow:0 0 80px rgba(201,168,76,0.25);animation:panelIn 0.35s cubic-bezier(.34,1.56,.64,1);margin:auto;}
+.sm-moon{font-size:2.8rem;margin-bottom:0.7rem;display:block;}
+.sm-title{font-family:'Cinzel Decorative',serif;color:var(--gold2);font-size:1.15rem;margin-bottom:0.3rem;}
+.sm-sub{color:rgba(255,255,255,0.5);font-size:0.82rem;margin-bottom:1.5rem;font-style:italic;line-height:1.6;}
+.social-links{display:flex;flex-direction:column;gap:0.65rem;margin-bottom:1.5rem;}
+.soc-link{display:flex;align-items:center;gap:0.9rem;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.22);border-radius:14px;padding:0.7rem 1rem;text-decoration:none;transition:all 0.25s;color:#fff;}
+.soc-link:hover{background:rgba(201,168,76,0.1);border-color:var(--gold);transform:translateX(5px);}
+.soc-icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-size:1.15rem;flex-shrink:0;}
+.soc-yt{background:linear-gradient(135deg,#c00,#f00);}
+.soc-fb{background:linear-gradient(135deg,#1877f2,#1a5fcc);}
+.soc-web{background:linear-gradient(135deg,#0d3b2e,#1a6b47);}
+.soc-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);}
+.soc-info{text-align:left;}
+.soc-name{font-family:'Cinzel Decorative',serif;font-size:0.75rem;color:var(--gold2);letter-spacing:0.06em;}
+.soc-url{font-size:0.7rem;color:rgba(255,255,255,0.4);margin-top:0.1rem;}
+.soc-arr{margin-left:auto;color:rgba(201,168,76,0.4);font-size:0.85rem;}
+.sm-close{background:var(--gold);color:#000;border:none;padding:0.7rem 2.5rem;border-radius:30px;font-family:'Cinzel Decorative',serif;cursor:pointer;font-size:0.85rem;font-weight:900;transition:all 0.2s;}
+.sm-close:hover{transform:scale(1.05);box-shadow:0 4px 20px rgba(201,168,76,0.5);}
+
+/* Footer */
+footer{position:relative;z-index:10;text-align:center;padding:2.5rem 1rem 5rem;border-top:1px solid rgba(201,168,76,0.15);}
+.ft-row{display:flex;align-items:center;justify-content:center;gap:0.8rem;margin-bottom:0.6rem;}
+.ft-line{height:1px;width:60px;}
+.ft-line.l{background:linear-gradient(90deg,transparent,rgba(201,168,76,0.5));}
+.ft-line.r{background:linear-gradient(90deg,rgba(201,168,76,0.5),transparent);}
+.ft-by{color:rgba(201,168,76,0.5);font-size:0.75rem;letter-spacing:0.15em;font-family:'Cinzel Decorative',serif;}
+.ft-link{display:inline-block;font-family:'Cinzel Decorative',serif;font-size:1.15rem;font-weight:700;background:linear-gradient(135deg,#a07828,#c9a84c,#f0d070,#c9a84c,#a07828);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;letter-spacing:0.1em;border-bottom:1px solid rgba(201,168,76,0.3);padding-bottom:2px;}
+.ft-yr{margin-top:0.5rem;color:rgba(255,255,255,0.2);font-size:0.72rem;letter-spacing:0.1em;}
+/* Loading overlay */
+.loading-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;place-items:center;flex-direction:column;gap:1rem;}
+.loading-overlay.show{display:grid;}
+.loading-spin{width:50px;height:50px;border:3px solid rgba(201,168,76,0.2);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loading-txt{color:var(--gold2);font-family:'Cinzel Decorative',serif;font-size:0.9rem;letter-spacing:0.1em;}
+@media(max-width:600px){.grid{grid-template-columns:1fr;gap:1.2rem;padding:0 1rem 5rem;}.eid-card{padding:1.5rem;}.c-arabic{font-size:4rem!important;}.c-main{font-size:2.2rem!important;}.c-sub{font-size:1.1rem!important;}.c-year{font-size:0.9rem!important;}}
+@media(max-width:400px){.c-arabic{font-size:3.2rem!important;}.c-main{font-size:1.8rem!important;}.c-sub{font-size:0.95rem!important;}.c-year{font-size:0.8rem!important;}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+
+<header>
+  <div class="orn-row"><div class="orn-line"></div><div class="orn-moon">🌙</div><div class="orn-line"></div></div>
+  <h1>Eid Mubarak</h1>
+  <p class="tagline">Premium Card Collection · 22 Exclusive Designs</p>
+</header>
+
+<div class="controls">
+  <div class="ctrl-row">
+    <div class="ctrl-box" style="flex:0 0 auto;">
+      <label>LANGUAGE</label>
+      <div class="lang-pills">
+        <button class="lang-pill active" onclick="setLang('en',this)">English</button>
+        <button class="lang-pill" onclick="setLang('bn',this)">বাংলা</button>
+      </div>
+    </div>
+    <div class="ctrl-box" style="flex:1;">
+      <label id="noteLabel">YOUR NOTE</label>
+      <textarea id="noteInput" placeholder="Write a personal message..." oninput="applyGlobalNote()"></textarea>
+    </div>
+    <div class="ctrl-box" style="flex:1;min-width:220px;">
+      <label>COMPANY BRANDING</label>
+      <input type="text" id="brandName" placeholder="Your Company Name" oninput="applyBrand()" style="width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,168,76,0.3);color:#fff;font-family:'Cinzel Decorative',serif;font-size:0.78rem;padding:0.3rem 0;outline:none;margin-bottom:0.5rem;">
+      <input type="text" id="brandTagline" placeholder="Wishes you Eid Mubarak" oninput="applyBrand()" style="width:100%;background:transparent;border:none;border-bottom:1px solid rgba(201,168,76,0.2);color:rgba(255,255,255,0.7);font-family:'Playfair Display',serif;font-size:0.75rem;font-style:italic;padding:0.3rem 0;outline:none;margin-bottom:0.6rem;">
+      <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;margin-top:0.2rem;">
+        <span style="color:rgba(240,208,112,0.7);font-size:0.72rem;letter-spacing:0.1em;font-family:'Cinzel Decorative',serif;">LOGO</span>
+        <input type="file" id="logoInput" accept="image/*" onchange="handleLogo(this)" style="display:none;">
+        <span id="logoBtn" onclick="document.getElementById('logoInput').click()" style="cursor:pointer;padding:0.25rem 0.8rem;border:1px solid rgba(201,168,76,0.4);border-radius:20px;color:var(--gold);font-size:0.7rem;font-family:'Cinzel Decorative',serif;transition:all 0.2s;" onmouseover="this.style.background='rgba(201,168,76,0.15)'" onmouseout="this.style.background='transparent'">📁 Upload Logo</span>
+        <span id="logoRemove" onclick="removeLogo()" style="display:none;cursor:pointer;color:rgba(255,100,100,0.7);font-size:0.7rem;" title="Remove logo">✕</span>
+      </label>
+    </div>
+  </div>
+</div>
+
+<div class="sec-div"><span>✦ SELECT YOUR TEMPLATE ✦</span></div>
+<div class="grid" id="cardGrid"></div>
+
+<footer>
+  <div class="ft-row"><div class="ft-line l"></div><span class="ft-by">DESIGNED BY</span><div class="ft-line r"></div></div>
+  <a class="ft-link" href="https://www.theanayet.top" target="_blank" rel="noopener">Anayet Ullah</a>
+  <div class="ft-yr">🌙 Eid Mubarak 1447 H / 2026 M 🌙</div>
+</footer>
+
+<!-- STICKY -->
+<div class="sticky" id="stickyBar">
+  <div class="sticky-left">
+    <span class="sticky-info" id="stickyInfo">No card selected</span>
+    <a href="https://www.theanayet.top" target="_blank" rel="noopener" class="sticky-credit">
+      <span class="sticky-credit-dot">✦</span>
+      <span>Made by <strong>Anayet Ullah</strong></span>
+    </a>
+  </div>
+  <div class="sticky-btns">
+    <button class="btn-edit" onclick="openEdit()">✏️ Edit Card</button>
+    <button class="btn-dl" onclick="doDownload()">⬇ Download HD</button>
+  </div>
+</div>
+
+<!-- LOADING -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-spin"></div>
+  <div class="loading-txt">Preparing HD Card...</div>
+</div>
+
+<!-- EDIT OVERLAY -->
+<div class="overlay" id="editOverlay">
+  <div class="edit-panel">
+    <div class="ep-hdr">
+      <h2>✦ EDIT YOUR CARD</h2>
+      <button class="ep-x" onclick="closeEdit()">✕</button>
+    </div>
+    <div class="ep-body">
+      <!-- Preview -->
+      <div class="ep-left">
+        <span class="ep-plbl">LIVE PREVIEW</span>
+        <div class="ep-pbox" id="epBox"></div>
+        <button class="ep-apply" style="width:100%;max-width:280px;" onclick="doDownload()">⬇ Download HD</button>
+      </div>
+      <!-- Controls -->
+      <div class="ep-right">
+
+        <div class="ep-field">
+          <label class="ep-lbl">✍ WRITE YOUR PERSONAL NOTE</label>
+          <textarea class="ep-ta" id="ep_note" oninput="livePreview()" placeholder="Write your heartfelt Eid message here..." style="min-height:90px;"></textarea>
+        </div>
+
+        <div class="ep-field">
+          <label class="ep-lbl">TOP LINE (Arabic / Bangla)</label>
+          <input class="ep-inp" id="ep_arabic" oninput="livePreview()">
+        </div>
+        <div class="ep-field">
+          <label class="ep-lbl">MAIN TITLE</label>
+          <input class="ep-inp" id="ep_main" oninput="livePreview()">
+        </div>
+        <div class="ep-field">
+          <label class="ep-lbl">SUBTITLE — Click to choose</label>
+          <div class="ep-presets" id="subPresetBtns" style="margin-bottom:0.4rem;"></div>
+          <input class="ep-inp" id="ep_sub" oninput="clearSubPresetActive();livePreview()" placeholder="Or type a custom subtitle...">
+        </div>
+        <div class="ep-field">
+          <label class="ep-lbl">YEAR / DATE</label>
+          <input class="ep-inp" id="ep_year" oninput="livePreview()">
+        </div>
+
+        <div class="ep-field">
+          <label class="ep-lbl">TOP LINE SIZE</label>
+          <div class="ep-srow">
+            <input type="range" class="ep-slider" id="ep_as" min="1.2" max="4.5" step="0.1" value="2.8" oninput="livePreview();document.getElementById('ep_as_v').textContent=parseFloat(this.value).toFixed(1)+'x'">
+            <span class="ep-sv" id="ep_as_v">2.8x</span>
+          </div>
+        </div>
+        <div class="ep-field">
+          <label class="ep-lbl">MAIN TITLE SIZE</label>
+          <div class="ep-srow">
+            <input type="range" class="ep-slider" id="ep_ms" min="0.8" max="3.5" step="0.1" value="1.6" oninput="livePreview();document.getElementById('ep_ms_v').textContent=parseFloat(this.value).toFixed(1)+'x'">
+            <span class="ep-sv" id="ep_ms_v">1.6x</span>
+          </div>
+        </div>
+
+        <div class="ep-field">
+          <label class="ep-lbl">SUBTITLE SIZE</label>
+          <div class="ep-srow">
+            <input type="range" class="ep-slider" id="ep_ss" min="0.4" max="2.0" step="0.05" value="0.78" oninput="livePreview();document.getElementById('ep_ss_v').textContent=parseFloat(this.value).toFixed(2)+'x'">
+            <span class="ep-sv" id="ep_ss_v">0.78x</span>
+          </div>
+        </div>
+
+        <div class="ep-field">
+          <label class="ep-lbl">YEAR / NOTE SIZE</label>
+          <div class="ep-srow">
+            <input type="range" class="ep-slider" id="ep_ns" min="0.4" max="1.8" step="0.05" value="0.82" oninput="livePreview();document.getElementById('ep_ns_v').textContent=parseFloat(this.value).toFixed(2)+'x'">
+            <span class="ep-sv" id="ep_ns_v">0.82x</span>
+          </div>
+        </div>
+
+        <div class="ep-actions">
+          <button class="ep-reset" onclick="resetCard()">↺ Reset</button>
+          <button class="ep-apply" onclick="applyAndClose()">✓ Apply & Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL MODAL -->
+<div class="overlay" id="socialOverlay">
+  <div class="social-modal">
+    <span class="sm-moon">🌙</span>
+    <div class="sm-title">Card Downloaded!</div>
+    <div class="sm-sub" id="smSub">Your beautiful Eid Mubarak card is ready!<br>Follow Anayet Ullah for more:</div>
+    <div class="social-links">
+      <a href="https://www.youtube.com/@theanayet" target="_blank" class="soc-link">
+        <div class="soc-icon soc-yt">▶</div>
+        <div class="soc-info"><div class="soc-name">YouTube</div><div class="soc-url">youtube.com/@theanayet</div></div>
+        <span class="soc-arr">→</span>
+      </a>
+      <a href="https://www.facebook.com/tuashin.islam.anayet" target="_blank" class="soc-link">
+        <div class="soc-icon soc-fb" style="font-weight:900;font-family:serif;">f</div>
+        <div class="soc-info"><div class="soc-name">Facebook</div><div class="soc-url">tuashin.islam.anayet</div></div>
+        <span class="soc-arr">→</span>
+      </a>
+      <a href="https://www.instagram.com/tuashinanayet/?hl=en" target="_blank" class="soc-link">
+        <div class="soc-icon soc-ig">📷</div>
+        <div class="soc-info"><div class="soc-name">Instagram</div><div class="soc-url">@tuashinanayet</div></div>
+        <span class="soc-arr">→</span>
+      </a>
+      <a href="https://www.theanayet.top" target="_blank" class="soc-link">
+        <div class="soc-icon soc-web">🌐</div>
+        <div class="soc-info"><div class="soc-name">Portfolio</div><div class="soc-url">theanayet.top</div></div>
+        <span class="soc-arr">→</span>
+      </a>
+    </div>
+    <button class="sm-close" onclick="closeSocial()">Jazak Allah Khair 🤲</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+// Stars
+const starsEl=document.getElementById('stars');
+for(let i=0;i<120;i++){const s=document.createElement('div');s.className='star';const z=Math.random()*2+0.5;s.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%;--d:'+(2+Math.random()*4)+'s;animation-delay:'+(Math.random()*4)+'s;';starsEl.appendChild(s);}
+
+// ── SUBTITLE PRESETS ──
+const SUB_PRESETS = {
+  en: [
+    "May Allah bless you with joy & peace",
+    "Wishing you a blessed and joyful Eid",
+    "May peace, mercy & blessings be upon you",
+    "May your prayers be answered this Eid",
+  ],
+  bn: [
+    "আল্লাহ আপনাকে সুখ ও শান্তি দিন",
+    "ঈদের শুভেচ্ছা ও অনেক ভালোবাসা রইল",
+    "আল্লাহ আপনার উপর রহমত ও বরকত নাজিল করুন",
+    "আপনার সকল দোয়া কবুল হোক এই ঈদে",
+  ]
+};
+
+// ── LANG DATA ──
+const LANGS={
+  en:{arabic:'عيد مبارك',main:'Eid Mubarak',sub:'May Allah bless you with joy & peace',year:'1447 H / 2026 M',notePh:'Write a personal message...',noteLabel:'YOUR NOTE',smSub:'Your beautiful Eid Mubarak card is ready!<br>Follow Anayet Ullah for more:',selPfx:'Selected'},
+  bn:{arabic:'ঈদ মুবারক',main:'ঈদ মুবারক',sub:'আল্লাহ আপনাকে সুখ ও শান্তি দিন',year:'১৪৪৭ হি / ২০২৬ খ্রি',notePh:'আপনার বার্তা লিখুন...',noteLabel:'আপনার বার্তা',smSub:'আপনার সুন্দর ঈদ কার্ড তৈরি!<br>আরো কন্টেন্টের জন্য Anayet Ullah কে ফলো করুন:',selPfx:'নির্বাচিত'}
+};
+
+const TMPLS=[
+  {id:'c1',cls:'c1',name:'Navy Mosque',namebn:'নেভি মসজিদ'},
+  {id:'c2',cls:'c2',name:'Ivory Elegance',namebn:'আইভোরি এলিগেন্স'},
+  {id:'c3',cls:'c3',name:'Royal Green',namebn:'রয়্যাল গ্রিন'},
+  {id:'c4',cls:'c4',name:'Purple Majesty',namebn:'পার্পল ম্যাজেস্টি'},
+  {id:'c5',cls:'c5',name:'Midnight Stars',namebn:'মিডনাইট স্টার্স'},
+  {id:'c6',cls:'c6',name:'Rose Gold',namebn:'রোজ গোল্ড'},
+  {id:'c7',cls:'c7',name:'Sunset Glow',namebn:'সানসেট গ্লো'},
+  {id:'c8',cls:'c8',name:'Teal Geometric',namebn:'টিল জ্যামিতিক'},
+  {id:'c9',cls:'c9',name:'Desert Gold',namebn:'মরুভূমি সোনা'},
+  {id:'c10',cls:'c10',name:'Indigo Lantern',namebn:'ইন্ডিগো লণ্ঠন'},
+  {id:'c11',cls:'c11',name:'Cherry Blossom',namebn:'চেরি ব্লোসম'},
+  {id:'c12',cls:'c12',name:'Olive Bronze',namebn:'অলিভ ব্রোঞ্জ'},
+  {id:'c13',cls:'c13',name:'Cobalt Blue',namebn:'কোবাল্ট ব্লু'},
+  {id:'c14',cls:'c14',name:'Emerald Jewel',namebn:'পান্না রত্ন'},
+  {id:'c15',cls:'c15',name:'Black Gold',namebn:'কালো সোনা'},
+  {id:'c16',cls:'c16',name:'Maroon Velvet',namebn:'মেরুন ভেলভেট'},
+  {id:'c17',cls:'c17',name:'Arctic Silver',namebn:'আর্কটিক রুপা'},
+  {id:'c18',cls:'c18',name:'Turquoise Mosaic',namebn:'টার্কোয়েজ মোজাইক'},
+  {id:'c19',cls:'c19',name:'Warm Ivory',namebn:'উষ্ণ আইভোরি'},
+  {id:'c20',cls:'c20',name:'Cosmic Nebula',namebn:'মহাজাগতিক'},
+  {id:'c21',cls:'c21',name:'Dark Forest',namebn:'অন্ধকার বন'},
+  {id:'c22',cls:'c22',name:'Sapphire Night',namebn:'নীলা রাত'},
+];
+
+let lang='en', selected=null, overrides={};
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function getCD(id){
+  const L=LANGS[lang],ov=overrides[id]||{},gn=document.getElementById('noteInput')?.value||'';
+  return{arabic:ov.arabic!==undefined?ov.arabic:L.arabic,main:ov.main!==undefined?ov.main:L.main,sub:ov.sub!==undefined?ov.sub:L.sub,year:ov.year!==undefined?ov.year:L.year,note:ov.note!==undefined?ov.note:gn,as:ov.as||2.8,ms:ov.ms||1.6,ss:ov.ss||0.78,ys:ov.ys||0.7,ns:ov.ns||0.82};
+}
+
+// SVG decorations
+function getsvg(id){
+  var S={
+    c1:'<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;"><rect x="10" y="10" width="380" height="380" fill="none" stroke="rgba(201,168,76,0.3)" stroke-width="1"/><rect x="18" y="18" width="364" height="364" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/><g fill="rgba(201,168,76,0.5)"><polygon points="10,10 30,10 10,30"/><polygon points="390,10 370,10 390,30"/><polygon points="10,390 30,390 10,370"/><polygon points="390,390 370,390 390,370"/></g><g fill="rgba(201,168,76,0.22)" transform="translate(62,248)"><ellipse cx="138" cy="56" rx="43" ry="43"/><rect x="95" y="56" width="86" height="56"/><ellipse cx="56" cy="74" rx="27" ry="27"/><rect x="29" y="74" width="54" height="36"/><ellipse cx="220" cy="74" rx="27" ry="27"/><rect x="193" y="74" width="54" height="36"/><rect x="6" y="18" width="16" height="92"/><polygon points="6,18 14,2 22,18"/><rect x="254" y="18" width="16" height="92"/><polygon points="254,18 262,2 270,18"/><rect x="0" y="110" width="276" height="8"/></g><g transform="translate(175,18)"><path d="M25,0 A25,25 0 1,1 5,43 A18,18 0 1,0 25,0Z" fill="rgba(240,208,112,0.7)"/><circle cx="20" cy="-5" r="3" fill="rgba(240,208,112,0.8)"/></g><g fill="rgba(240,208,112,0.45)" font-size="12"><text x="30" y="58">&#10022;</text><text x="350" y="58">&#10022;</text><text x="30" y="345">&#10022;</text><text x="350" y="345">&#10022;</text><text x="190" y="382">&#10022;</text></g></svg>',
+    c2:'<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;"><rect x="8" y="8" width="384" height="384" fill="none" stroke="rgba(180,130,20,0.4)" stroke-width="1.5"/><rect x="15" y="15" width="370" height="370" fill="none" stroke="rgba(180,130,20,0.2)" stroke-width="0.8"/><g stroke="rgba(180,130,20,0.35)" stroke-width="0.8" fill="none"><path d="M8,8 L40,8 L40,20 L20,20 L20,40 L8,40Z"/><path d="M392,8 L360,8 L360,20 L380,20 L380,40 L392,40Z"/><path d="M8,392 L40,392 L40,380 L20,380 L20,360 L8,360Z"/><path d="M392,392 L360,392 L360,380 L380,380 L380,360 L392,360Z"/></g><g transform="translate(30,90)" opacity="0.5"><line x1="20" y1="0" x2="20" y2="22" stroke="rgba(180,130,20,0.6)" stroke-width="1"/><rect x="5" y="22" width="30" height="46" rx="4" fill="none" stroke="rgba(180,130,20,0.6)" stroke-width="1.2"/><polygon points="20,4 35,22 5,22" fill="none" stroke="rgba(180,130,20,0.6)" stroke-width="1"/><line x1="20" y1="68" x2="20" y2="82" stroke="rgba(180,130,20,0.5)" stroke-width="1"/><path d="M12,82 Q20,94 28,82" fill="rgba(200,160,30,0.3)"/></g><g transform="translate(340,90)" opacity="0.5"><line x1="20" y1="0" x2="20" y2="22" stroke="rgba(180,130,20,0.6)" stroke-width="1"/><rect x="5" y="22" width="30" height="46" rx="4" fill="none" stroke="rgba(180,130,20,0.6)" stroke-width="1.2"/><polygon points="20,4 35,22 5,22" fill="none" stroke="rgba(180,130,20,0.6)" stroke-width="1"/><line x1="20" y1="68" x2="20" y2="82" stroke="rgba(180,130,20,0.5)" stroke-width="1"/><path d="M12,82 Q20,94 28,82" fill="rgba(200,160,30,0.3)"/></g><g transform="translate(175,14)" opacity="0.7"><path d="M25,5 A22,22 0 1,1 6,40 A16,16 0 1,0 25,5Z" fill="rgba(180,130,20,0.5)"/></g><g fill="rgba(180,130,20,0.4)" font-size="12"><text x="175" y="387">&#10022; &#10022; &#10022;</text></g></svg>',
+    c3:'<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;"><rect x="8" y="8" width="384" height="384" fill="none" stroke="rgba(240,208,112,0.35)" stroke-width="1.5"/><rect x="16" y="16" width="368" height="368" fill="none" stroke="rgba(240,208,112,0.2)" stroke-width="0.8"/><g fill="rgba(240,208,112,0.18)" transform="translate(58,258)"><ellipse cx="142" cy="50" rx="42" ry="42"/><rect x="100" y="50" width="84" height="55"/><ellipse cx="56" cy="68" rx="26" ry="26"/><rect x="30" y="68" width="52" height="37"/><ellipse cx="228" cy="68" rx="26" ry="26"/><rect x="202" y="68" width="52" height="37"/><rect x="7" y="17" width="14" height="91"/><polygon points="7,17 14,1 21,17"/><rect x="263" y="17" width="14" height="91"/><polygon points="263,17 270,1 277,17"/><rect x="0" y="108" width="284" height="8"/></g><g transform="translate(178,14)" opacity="0.8"><path d="M22,4 A20,20 0 1,1 5,36 A14,14 0 1,0 22,4Z" fill="rgba(240,208,112,0.6)"/><circle cx="18" cy="-3" r="2.5" fill="rgba(240,208,112,0.7)"/></g><g fill="rgba(240,208,112,0.45)" font-size="14"><text x="28" y="55">&#10022;</text><text x="355" y="55">&#10022;</text><text x="28" y="358">&#10022;</text><text x="355" y="358">&#10022;</text></g></svg>',
+    c5:'<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;"><g fill="rgba(255,255,200,0.7)"><circle cx="40" cy="30" r="1.5"/><circle cx="80" cy="60" r="1"/><circle cx="120" cy="25" r="2"/><circle cx="160" cy="50" r="1"/><circle cx="200" cy="20" r="1.5"/><circle cx="240" cy="45" r="1"/><circle cx="280" cy="35" r="2"/><circle cx="320" cy="55" r="1"/><circle cx="360" cy="30" r="1.5"/><circle cx="60" cy="100" r="1"/><circle cx="340" cy="100" r="1.5"/><circle cx="30" cy="370" r="1"/><circle cx="370" cy="360" r="1.5"/></g><g transform="translate(148,8)" opacity="0.85"><path d="M52,8 A46,46 0 1,1 10,80 A34,34 0 1,0 52,8Z" fill="rgba(255,215,0,0.5)"/><circle cx="43" cy="-5" r="5" fill="rgba(255,215,0,0.7)"/></g><rect x="12" y="12" width="376" height="376" fill="none" stroke="rgba(255,215,0,0.15)" stroke-width="1"/><g fill="rgba(255,215,0,0.4)" font-size="12"><text x="25" y="52">&#9733;</text><text x="358" y="52">&#9733;</text><text x="25" y="375">&#9733;</text><text x="358" y="375">&#9733;</text></g></svg>',
+    c10:'<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;"><g opacity="0.65"><line x1="80" y1="0" x2="80" y2="28" stroke="rgba(255,215,0,0.5)" stroke-width="1"/><ellipse cx="80" cy="54" rx="20" ry="28" fill="none" stroke="rgba(255,215,0,0.55)" stroke-width="1.2"/><ellipse cx="80" cy="38" rx="14" ry="10" fill="none" stroke="rgba(255,215,0,0.35)" stroke-width="0.7"/><ellipse cx="80" cy="70" rx="14" ry="8" fill="none" stroke="rgba(255,215,0,0.35)" stroke-width="0.7"/><line x1="80" y1="82" x2="80" y2="96" stroke="rgba(255,215,0,0.4)" stroke-width="1"/><path d="M72,96 Q80,108 88,96" fill="rgba(255,215,0,0.28)"/><line x1="200" y1="0" x2="200" y2="18" stroke="rgba(255,215,0,0.5)" stroke-width="1"/><ellipse cx="200" cy="46" rx="24" ry="32" fill="none" stroke="rgba(255,215,0,0.65)" stroke-width="1.5"/><ellipse cx="200" cy="28" rx="16" ry="12" fill="none" stroke="rgba(255,215,0,0.35)" stroke-width="0.7"/><ellipse cx="200" cy="64" rx="16" ry="10" fill="none" stroke="rgba(255,215,0,0.35)" stroke-width="0.7"/><line x1="200" y1="78" x2="200" y2="96" stroke="rgba(255,215,0,0.4)" stroke-width="1"/><path d="M190,96 Q200,110 210,96" fill="rgba(255,215,0,0.32)"/><line x1="320" y1="0" x2="320" y2="28" stroke="rgba(255,215,0,0.5)" stroke-width="1"/><ellipse cx="320" cy="54" rx="20" ry="28" fill="none" stroke="rgba(255,215,0,0.55)" stroke-width="1.2"/><ellipse cx="320" cy="38" rx="14" ry="10" fill="none" stroke="rgba(255,215,0,0.35)" stroke-width="0.7"/><ellipse cx="320" cy="70" rx="14" ry="8" fill="none" stroke="rgba(255,215,0,0.35)" stroke-width="0.7"/><line x1="320" y1="82" x2="320" y2="96" stroke="rgba(255,215,0,0.4)" stroke-width="1"/><path d="M312,96 Q320,108 328,96" fill="rgba(255,215,0,0.28)"/></g><rect x="10" y="10" width="380" height="380" fill="none" stroke="rgba(255,215,0,0.2)" stroke-width="1"/><g fill="rgba(255,215,0,0.4)" font-size="12"><text x="25" y="382">&#10022;</text><text x="360" y="382">&#10022;</text></g></svg>',
+    c15:'<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;"><rect x="8" y="8" width="384" height="384" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="2"/><rect x="16" y="16" width="368" height="368" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="0.8"/><g fill="rgba(201,168,76,0.4)"><rect x="8" y="8" width="22" height="4"/><rect x="8" y="8" width="4" height="22"/><rect x="370" y="8" width="22" height="4"/><rect x="388" y="8" width="4" height="22"/><rect x="8" y="388" width="22" height="4"/><rect x="8" y="370" width="4" height="22"/><rect x="370" y="388" width="22" height="4"/><rect x="388" y="370" width="4" height="22"/></g><g fill="rgba(201,168,76,0.14)" transform="translate(60,262)"><ellipse cx="140" cy="50" rx="42" ry="42"/><rect x="98" y="50" width="84" height="55"/><ellipse cx="54" cy="68" rx="26" ry="26"/><rect x="28" y="68" width="52" height="37"/><ellipse cx="226" cy="68" rx="26" ry="26"/><rect x="200" y="68" width="52" height="37"/><rect x="6" y="16" width="15" height="92"/><polygon points="6,16 13,0 20,16"/><rect x="263" y="16" width="15" height="92"/><polygon points="263,16 270,0 277,16"/><rect x="0" y="109" width="284" height="8"/></g><g fill="rgba(201,168,76,0.6)" font-size="13"><text x="22" y="50">&#10022;</text><text x="360" y="50">&#10022;</text><text x="22" y="375">&#10022;</text><text x="360" y="375">&#10022;</text></g></svg>'
+  };
+  var def='<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;"><rect x="10" y="10" width="380" height="380" fill="none" stroke="rgba(201,168,76,0.28)" stroke-width="1"/><rect x="18" y="18" width="364" height="364" fill="none" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/><g transform="translate(178,12)" opacity="0.6"><path d="M22,4 A20,20 0 1,1 5,36 A14,14 0 1,0 22,4Z" fill="rgba(201,168,76,0.45)"/><circle cx="18" cy="-2" r="2" fill="rgba(201,168,76,0.6)"/></g><g fill="rgba(201,168,76,0.32)" font-size="11"><text x="22" y="50">&#10022;</text><text x="360" y="50">&#10022;</text><text x="22" y="368">&#10022;</text><text x="360" y="368">&#10022;</text><text x="187" y="388">&#10022;</text></g><path d="M40,38 Q100,30 200,38 Q300,30 360,38" fill="none" stroke="rgba(201,168,76,0.18)" stroke-width="0.8"/><path d="M40,362 Q100,370 200,362 Q300,370 360,362" fill="none" stroke="rgba(201,168,76,0.18)" stroke-width="0.8"/></svg>';
+  return S[id]||def;
+}
+
+// ── Build card ──
+function mkCard(t, mode){
+  var el=document.createElement('div');
+  el.className='eid-card '+t.cls;
+  if(mode==='grid') el.id='card_'+t.id;
+  var d=getCD(t.id);
+  var DL=(mode==='download');
+  var as,ms,ss,ys,ns;
+  if(DL){
+    as=Math.round(d.as*60)+'px'; ms=Math.round(d.ms*55)+'px';
+    ss=Math.round((d.ss||0.78)*45)+'px'; ys=Math.round((d.ys||0.70)*38)+'px';
+    ns=Math.round((d.ns||0.82)*40)+'px';
+  } else {
+    as=d.as+'rem'; ms=d.ms+'rem'; ss=(d.ss||0.78)+'rem';
+    ys=(d.ys||0.70)+'rem'; ns=(d.ns||0.82)+'rem';
+  }
+  var brandName=document.getElementById('brandName')?document.getElementById('brandName').value:'';
+  var brandTagline=document.getElementById('brandTagline')?document.getElementById('brandTagline').value:'';
+  var hasBrand=!!(brandName||brandTagline||window.logoDataUrl);
+  var logoWrapHtml='';
+  if(window.logoDataUrl){
+    if(DL){
+      logoWrapHtml='<div style="width:80px;height:80px;border-radius:50%;border:3px solid rgba(201,168,76,0.7);background:rgba(10,22,40,0.9);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"><img src="'+window.logoDataUrl+'" style="width:100%;height:100%;object-fit:contain;border-radius:50%;"></div>';
+    } else {
+      logoWrapHtml='<div class="c-brand-logo-wrap"><img src="'+window.logoDataUrl+'" class="c-brand-logo"></div>';
+    }
+  }
+  var pillStyle=DL?'position:absolute;bottom:30px;left:30px;right:30px;z-index:10;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:18px;padding:14px 28px 14px 16px;background:rgba(0,0,0,0.82);border:2px solid rgba(201,168,76,0.55);border-radius:200px;':'';
+  var divStyle=DL?'width:2px;height:56px;background:rgba(201,168,76,0.4);flex-shrink:0;':'';
+  var nmStyle=DL?'font-family:\'Cinzel Decorative\',serif;font-size:30px;letter-spacing:0.14em;color:#f0d070;line-height:1.3;white-space:nowrap;':'';
+  var tgStyle=DL?'font-family:\'Playfair Display\',serif;font-size:22px;letter-spacing:0.06em;color:rgba(255,255,255,0.55);font-style:italic;white-space:nowrap;':'';
+  el.innerHTML=getsvg(t.id)
+    +'<div class="c-arabic" style="font-size:'+as+'">'+esc(d.arabic)+'</div>'
+    +'<div class="c-main" style="font-size:'+ms+'">'+esc(d.main)+'</div>'
+    +'<div class="c-sub" style="font-size:'+ss+'">'+esc(d.sub)+'</div>'
+    +'<div class="c-year" style="font-size:'+ys+'">'+esc(d.year)+'</div>'
+    +'<div class="c-note" style="display:'+(d.note?'block':'none')+';font-size:'+ns+'">'+esc(d.note)+'</div>'
+    +'<div class="c-brand'+(hasBrand?' show':'')+'" style="'+pillStyle+'">'
+    +logoWrapHtml
+    +(hasBrand?DL?'<div style="'+divStyle+'"></div>':'<div class="c-brand-divider"></div>':'')
+    +'<div class="c-brand-text">'
+    +'<div class="c-brand-name" style="'+nmStyle+(brandName?'':'display:none;')+'">'+esc(brandName)+'</div>'
+    +'<div class="c-brand-tagline" style="'+tgStyle+(brandTagline?'':'display:none;')+'">'+esc(brandTagline)+'</div>'
+    +'</div>'
+    +'</div>';
+  return el;
+}
+
+// ── Build grid ──
+function buildGrid(){
+  var g=document.getElementById('cardGrid');
+  g.innerHTML='';
+  TMPLS.forEach(function(t){
+    var w=document.createElement('div');
+    w.className='card-wrap'+(selected===t.id?' selected':'');
+    w.id='wrap_'+t.id;
+    w.onclick=function(){selectCard(t.id,lang==='bn'?t.namebn:t.name);};
+    w.appendChild(mkCard(t,'grid'));
+    var lb=document.createElement('div');
+    lb.className='card-name-tag';
+    lb.textContent=lang==='bn'?t.namebn:t.name;
+    w.appendChild(lb);
+    g.appendChild(w);
+  });
+}
+
+// ── Build preset buttons ──
+function buildSubPresets(){
+  var container=document.getElementById('subPresetBtns');
+  if(!container)return;
+  container.innerHTML='';
+  var curSub=document.getElementById('ep_sub').value;
+  SUB_PRESETS[lang].forEach(function(msg){
+    var btn=document.createElement('button');
+    btn.className='preset-btn'+(curSub===msg?' active':'');
+    btn.textContent=msg;
+    btn.style.cssText='font-size:0.82rem;padding:0.45rem 0.85rem;';
+    btn.onclick=function(){
+      document.getElementById('ep_sub').value=msg;
+      document.querySelectorAll('#subPresetBtns .preset-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      livePreview();
+    };
+    container.appendChild(btn);
+  });
+}
+
+function clearSubPresetActive(){
+  document.querySelectorAll('#subPresetBtns .preset-btn').forEach(function(b){b.classList.remove('active');});
+}
+
+function setLang(l,btn){
+  lang=l;
+  document.querySelectorAll('.lang-pill').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var L=LANGS[l];
+  document.getElementById('noteInput').placeholder=L.notePh;
+  document.getElementById('noteLabel').textContent=L.noteLabel;
+  buildGrid();
+}
+
+// ── Brand/Logo functions ──
+window.logoDataUrl = null;
+
+function handleLogo(input){
+  if(!input.files||!input.files[0])return;
+  var reader=new FileReader();
+  reader.onload=function(e){
+    window.logoDataUrl=e.target.result;
+    document.getElementById('logoRemove').style.display='inline';
+    document.getElementById('logoBtn').textContent='✓ Logo Added';
+    buildGrid();
+    if(selected){document.getElementById('wrap_'+selected)?.classList.add('selected');livePreview();}
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function removeLogo(){
+  window.logoDataUrl=null;
+  document.getElementById('logoInput').value='';
+  document.getElementById('logoRemove').style.display='none';
+  document.getElementById('logoBtn').textContent='📁 Upload Logo';
+  buildGrid();
+  if(selected)document.getElementById('wrap_'+selected)?.classList.add('selected');
+}
+
+function applyBrand(){
+  buildGrid();
+  if(selected){document.getElementById('wrap_'+selected)?.classList.add('selected');livePreview();}
+}
+
+function applyGlobalNote(){buildGrid();if(selected)document.getElementById('wrap_'+selected)?.classList.add('selected');}
+
+function selectCard(id,name){
+  document.getElementById('wrap_'+selected)?.classList.remove('selected');
+  selected=id;
+  document.getElementById('wrap_'+id)?.classList.add('selected');
+  document.getElementById('wrap_'+id)?.scrollIntoView({behavior:'smooth',block:'center'});
+  document.getElementById('stickyBar').classList.add('show');
+  document.getElementById('stickyInfo').textContent='✦ '+LANGS[lang].selPfx+': '+name;
+}
+
+// ── Edit ──
+function openEdit(){
+  if(!selected){alert('Please select a card first!');return;}
+  var d=getCD(selected);
+  document.getElementById('ep_arabic').value=d.arabic;
+  document.getElementById('ep_main').value=d.main;
+  document.getElementById('ep_sub').value=d.sub;
+  document.getElementById('ep_year').value=d.year;
+  document.getElementById('ep_note').value=d.note;
+  document.getElementById('ep_as').value=d.as;
+  document.getElementById('ep_ms').value=d.ms;
+  document.getElementById('ep_as_v').textContent=d.as+'x';
+  document.getElementById('ep_ms_v').textContent=d.ms+'x';
+  document.getElementById('ep_ss').value=d.ss||0.78;
+  document.getElementById('ep_ss_v').textContent=(d.ss||0.78).toFixed(2)+'x';
+  document.getElementById('ep_ns').value=d.ns||0.82;
+  document.getElementById('ep_ns_v').textContent=(d.ns||0.82).toFixed(2)+'x';
+  buildSubPresets();
+  livePreview();
+  document.getElementById('editOverlay').classList.add('show');
+}
+
+function livePreview(){
+  if(!selected)return;
+  var t=TMPLS.find(function(x){return x.id===selected;});
+  overrides[selected]={
+    arabic:document.getElementById('ep_arabic').value,
+    main:document.getElementById('ep_main').value,
+    sub:document.getElementById('ep_sub').value,
+    year:document.getElementById('ep_year').value,
+    note:document.getElementById('ep_note').value,
+    as:parseFloat(document.getElementById('ep_as').value),
+    ms:parseFloat(document.getElementById('ep_ms').value),
+    ss:parseFloat(document.getElementById('ep_ss').value),
+    ns:parseFloat(document.getElementById('ep_ns').value)
+  };
+  var box=document.getElementById('epBox');
+  box.innerHTML='';
+  var c=mkCard(t,'preview');
+  c.style.cssText='width:100%;height:100%;';
+  box.appendChild(c);
+}
+
+function applyAndClose(){
+  buildGrid();
+  document.getElementById('wrap_'+selected)?.classList.add('selected');
+  closeEdit();
+}
+
+function resetCard(){
+  if(!selected)return;
+  delete overrides[selected];
+  document.querySelectorAll('.preset-btn').forEach(function(b){b.classList.remove('active');});
+  var d=getCD(selected);
+  document.getElementById('ep_arabic').value=d.arabic;
+  document.getElementById('ep_main').value=d.main;
+  document.getElementById('ep_sub').value=d.sub;
+  document.getElementById('ep_year').value=d.year;
+  document.getElementById('ep_note').value='';
+  document.getElementById('ep_as').value=2.8;
+  document.getElementById('ep_ms').value=1.6;
+  document.getElementById('ep_as_v').textContent='2.8x';
+  document.getElementById('ep_ms_v').textContent='1.6x';
+  document.getElementById('ep_ss').value=0.78;
+  document.getElementById('ep_ss_v').textContent='0.78x';
+  document.getElementById('ep_ns').value=0.82;
+  document.getElementById('ep_ns_v').textContent='0.82x';
+  livePreview();
+}
+
+function closeEdit(){document.getElementById('editOverlay').classList.remove('show');}
+
+// ── Download HD — 1080x1080, px units ──
+function doDownload(){
+  if(!selected){alert('Please select a card first!');return;}
+  var t=TMPLS.find(function(x){return x.id===selected;});
+  var epOpen=document.getElementById('editOverlay').classList.contains('show');
+  if(epOpen){
+    overrides[selected]={
+      arabic:document.getElementById('ep_arabic').value,
+      main:document.getElementById('ep_main').value,
+      sub:document.getElementById('ep_sub').value,
+      year:document.getElementById('ep_year').value,
+      note:document.getElementById('ep_note').value,
+      as:parseFloat(document.getElementById('ep_as').value),
+      ms:parseFloat(document.getElementById('ep_ms').value),
+      ss:parseFloat(document.getElementById('ep_ss').value),
+      ns:parseFloat(document.getElementById('ep_ns').value)
+    };
+  }
+  // Show loading
+  document.getElementById('loadingOverlay').classList.add('show');
+  // Build off-screen 1080px card with px-based font sizes
+  var wrap=document.createElement('div');
+  wrap.style.cssText='position:fixed;left:-9999px;top:-9999px;width:1080px;height:1080px;z-index:-999;';
+  var c=mkCard(t,'download');
+  // Set base font-size to 2.7x normal so rem units scale up with the 1080px canvas
+  c.style.cssText='width:1080px;height:1080px;padding:60px;font-size:16px;';
+  wrap.appendChild(c);
+  document.body.appendChild(wrap);
+  setTimeout(function(){
+    html2canvas(c,{scale:3,useCORS:true,allowTaint:true,backgroundColor:null,logging:false,width:1080,height:1080}).then(function(canvas){
+      document.body.removeChild(wrap);
+      document.getElementById('loadingOverlay').classList.remove('show');
+      var a=document.createElement('a');
+      var fname=(lang==='bn'?t.namebn:t.name).replace(/\s+/g,'-');
+      a.download='EidMubarak-'+fname+'-2026.png';
+      a.href=canvas.toDataURL('image/png',1.0);
+      a.click();
+      buildGrid();
+      document.getElementById('wrap_'+selected)?.classList.add('selected');
+      if(epOpen)closeEdit();
+      document.getElementById('smSub').innerHTML=LANGS[lang].smSub;
+      document.getElementById('socialOverlay').classList.add('show');
+    }).catch(function(){
+      document.body.removeChild(wrap);
+      document.getElementById('loadingOverlay').classList.remove('show');
+      alert('Download failed. Please try again.');
+    });
+  },250);
+}
+
+function closeSocial(){document.getElementById('socialOverlay').classList.remove('show');}
+
+document.getElementById('editOverlay').addEventListener('click',function(e){if(e.target===this)closeEdit();});
+document.getElementById('socialOverlay').addEventListener('click',function(e){if(e.target===this)closeSocial();});
+
+buildGrid();
+</script>
+</body>
+</html>
